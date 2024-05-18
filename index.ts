@@ -56,7 +56,7 @@ generateCandidates.cache = new Map<number, number[]>()
  For example, given 100, you can reach 1 in five steps with the following route:
  100 -> 10 -> 9 -> 3 -> 2 -> 1.
  */
-function findFirstSmallestPath(n: number): number[] {
+export function findFirstSmallestPath(n: number): number[] {
     if (!Number.isInteger(n) || n < 1)
         throw RangeError(`N has to be an integer larger or equal to 1. ${n} given.`)
 
@@ -77,10 +77,13 @@ function findFirstSmallestPath(n: number): number[] {
     throw Error(`Coundn't find path for n = ${n}`)
 }
 
-console.time("Run")
-console.log("Shortest paths")
-for (let i = 100; i <= 100_000; i += 71) {
-    const result = findFirstSmallestPath(i)
-    console.log(`${i} (${result?.length})`, result)
+if (Bun.main === __filename) {
+    console.time("Run")
+    console.log("Shortest paths")
+    console.log(findFirstSmallestPath(100))
+    // for (let i = 100; i <= 100_000; i += 71) {
+    //     const result = findFirstSmallestPath(i)
+    //     console.log(`${i} (${result?.length})`, result)
+    // }
+    console.timeEnd("Run")
 }
-console.timeEnd("Run")

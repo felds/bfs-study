@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test"
-import { generateCandidates, getMultiplierPairs } from "."
+import { findFirstSmallestPath, generateCandidates, getMultiplierPairs } from "."
 
 test("It generates all the multipliers", () => {
     expect(getMultiplierPairs(0)).toEqual([])
@@ -45,4 +45,8 @@ test("It generates candidates", () => {
     // compound numbers
     expect(generateCandidates(12)).toEqual([11, 4, 6])
     expect(generateCandidates(24)).toEqual([23, 6, 8, 12])
+})
+
+test("It gets the same result as the example case", () => {
+    expect(findFirstSmallestPath(100)).toEqual([100, 10, 9, 3, 2, 1])
 })
