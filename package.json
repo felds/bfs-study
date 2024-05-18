@@ -1,0 +1,17 @@
+{
+    "name": "bfs",
+    "module": "index.ts",
+    "type": "module",
+    "devDependencies": {
+        "@types/bun": "latest"
+    },
+    "peerDependencies": {
+        "typescript": "^5.0.0"
+    },
+    "prettier": {
+        "trailingComma": "all",
+        "semi": false,
+        "printWidth": 100,
+        "tabWidth": 4
+    }
+}
