@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test"
-import { getMultiplierPairs } from "."
+import { generateCandidates, getMultiplierPairs } from "."
 
 test("It generates all the multipliers", () => {
     expect(getMultiplierPairs(0)).toEqual([])
@@ -26,4 +26,23 @@ test("It generates all the multipliers", () => {
         [3, 8],
         [2, 12],
     ])
+})
+
+test("It generates candidates", () => {
+    // invalid cases
+    expect(() => generateCandidates(0)).toThrow()
+    expect(() => generateCandidates(1)).toThrow()
+
+    // primes
+    expect(generateCandidates(2)).toEqual([1])
+    expect(generateCandidates(3)).toEqual([2])
+    expect(generateCandidates(19)).toEqual([18])
+
+    // prime squares
+    expect(generateCandidates(9)).toEqual([8, 3])
+    expect(generateCandidates(289)).toEqual([288, 17])
+
+    // compound numbers
+    expect(generateCandidates(12)).toEqual([11, 4, 6])
+    expect(generateCandidates(24)).toEqual([23, 6, 8, 12])
 })
