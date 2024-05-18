@@ -1,9 +1,17 @@
-# bfs
+# Bfs Study
 
-To install dependencies:
+It solves for the problem:
 
-```bash
-bun install
+```text
+Given a positive integer N, find the smallest number of steps it will take to
+reach 1.
+
+There are two kinds of permitted steps:
+- You may decrement N to N - 1.
+- If a * b = N, you may decrement N to the larger of a and b.
+
+For example, given 100, you can reach 1 in five steps with the following route:
+100 -> 10 -> 9 -> 3 -> 2 -> 1.
 ```
 
 To run:
@@ -12,4 +20,8 @@ To run:
 bun run index.ts
 ```
 
-This project was created using `bun init` in bun v1.1.1. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+To test:
+
+```bash
+bun test
+```
